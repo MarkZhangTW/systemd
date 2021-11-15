@@ -1,0 +1,16 @@
+[Unit]
+Description=The Keycloak Application Server
+After=syslog.target network.target
+[Service]
+Environment="JAVA_HOME=/opt/java/jdk8u302-b08"
+Environment="JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom"
+Environment="JAVA_OPTS=-Djava.net.preferIPv4Stack=true"
+Environment=LAUNCH_JBOSS_IN_BACKGROUND=1
+User=keycloak
+LimitNOFILE=102642
+PIDFile=/opt/jboss/keycloak/keycloak-4.8.3.Final/standalone/keycloak.pid
+ExecStart=/opt/jboss/keycloak/keycloak-4.8.3.Final/bin/standalone.sh -c standalone.xml -b 0.0.0.0
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
