@@ -1,0 +1,13 @@
+[Unit]
+Description=Oracle 19c Database
+After=network.target
+
+[Service]
+Type=forking
+Environment=ORACLE_HOME=/opt/oracle/product/19c/dbhome_1
+ExecStart=/opt/oracle/product/19c/dbhome_1/bin/dbstart $ORACLE_HOME
+ExecStop=/opt/oracle/product/19c/dbhome_1/bin/dbshut $ORACLE_HOME
+User=oracle
+
+[Install]
+WantedBy=multi-user.target
