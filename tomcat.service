@@ -1,0 +1,14 @@
+[Unit]
+Description=Apache Tomcat 8.5 Web Application Container
+
+[Service]
+User=tomcat
+Group=tomcat
+Type=forking
+Environment=CATALINA_HOME=/opt/tomcat/apache-tomcat-8.5.72
+Environment=CATALINA_BASE=/opt/tomcat/myapp
+ExecStart=/opt/tomcat/apache-tomcat-8.5.72/bin/startup.sh
+ExecStop=/opt/tomcat/apache-tomcat-8.5.72/bin/shutdown.sh 9
+
+[Install]
+WantedBy=multi-user.target
