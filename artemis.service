@@ -1,0 +1,15 @@
+[Unit]
+Description=Apache ActiveMQ Artemis 1.5.5
+
+[Service]
+Type=forking
+User=artemis
+Group=artemis
+Environment=JAVA_HOME=/opt/java/jdk8u312-b07
+PIDFile=/opt/artemis/broker/data/artemis.pid
+ExecStart=/opt/artemis/broker/bin/artemis-service start
+ExecStop=/opt/artemis/broker/bin/artemis-service stop
+ExecReload=/opt/artemis/broker/bin/artemis-service restart
+
+[Install]
+WantedBy=multi-user.target
