@@ -11,3 +11,6 @@ User=oracle
 
 [Install]
 WantedBy=multi-user.target
+
+# Edit /etc/oratab
+# ORCL:/opt/oracle/product/19c/dbhome_1:Y
